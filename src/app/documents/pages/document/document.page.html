@@ -1,0 +1,36 @@
+@let document = documentResource.value();
+
+@if(documentResource.hasValue()) {
+  <ng-container *ngTemplateOutlet="documentTpl">
+  </ng-container>
+} @else if (documentResource.error()) {
+  <p>
+    Could not load the document (Image an error bar or retry button here)
+  </p>
+} @else if (documentResource.isLoading()) {
+  <p>
+    Loading the document... (Image a spinner here)
+  </p>
+}
+
+<ng-template #documentTpl>
+  <section
+    class="document"
+    [style.transform]="scaleProperty()"
+    #container>
+    <header>
+      <h1>{{ document?.name }}</h1>
+    </header>
+
+    @for(page of document?.pages; track page.number) {
+      <cw-document-page
+        [cwPage]="page"
+        [cwLibAnnotation]="page.annotation"
+        [cwLibAnnotationScaleX]="scaleRate()"
+        [cwLibAnnotationScaleY]="scaleRate()"
+        [cwLibAnnotationContainer]="container"
+        (cwLibAnnotationChanged)="onPageAnnotationChanged(page, $event)">
+      </cw-document-page>
+    }
+  </section>
+</ng-template>

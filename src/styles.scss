@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/normalize.css/normalize.css';
+
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  background-color: #f0f0f0;
+  height: 100%;
+}

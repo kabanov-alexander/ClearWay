@@ -1,0 +1,37 @@
+:host {
+  --cw-annotation-bg-color--default: rgba(255 247 0 / 40%);
+  --cw-annotation-bg-color--hover: rgba(255 247 0 / 60%);
+
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cw-annotation-bg-color--default);
+  user-select: none;
+  position: absolute;
+  max-width: 400px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--cw-annotation-bg-color--hover);
+  }
+}
+
+.placeholder {
+  padding: 10px;
+}
+
+.actions {
+  display: flex;
+  right: 0;
+  top: -20px;
+  position: absolute;
+
+  &__item {
+    background: black;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}

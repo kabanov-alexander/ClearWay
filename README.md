@@ -1,59 +1,20 @@
-# ClearWay
+# Плюсы
+В качестве структуры проекта выбран Feature Module in-depth, чтобы иметь возможноть масштабироваться в глубину, а не только в ширину (как, например, в FSD). <br>
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Модели Api отделены от моделей приложения, чтобы увеличить уровень абстракции.<br>
 
-## Development server
+Применено минимум smart компонентов, что позволяет избавиться от лишних зависимостей.<br><br>
 
-To start a local development server, run:
+# Минусы
+Помимо UX hell ;)<br>
 
-```bash
-ng serve
-```
+Без какого-либо вида state management полностью бизнес логику отделить достаточно сложно и это продюсирует избыточные поблемы архитектурного плана.<br>
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+На начальном этапе хорошо бы знать перспективы для закладывания базового фундамента (всякие там nx, design patterns и т.д.), но на тестовом проекте и так понятно.<br>
 
-## Code scaffolding
+Стили и строительные блоки приложения не унифицированы, тут, естесственно, требуется изначальная работа с дизайнерами.<br><br>
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# Проблемы
+Drag/Drop реализован на скорую руку на mouseup/mousedown, по-хорошему это бы делать на draggable с time аудитом и энимейшн фреймами, с дополнительными overlay и тому подобное. Но для тестового задания сильно не запаривался, как я понял тут важнее архитектурный аспект. <br>
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Есть проблема с viewport overflow на scaling, с ходу хорошего решения на reflow/repaint не придумал, нужно посидеть подумать, но оставил так в рамках тестового задания<br><br>

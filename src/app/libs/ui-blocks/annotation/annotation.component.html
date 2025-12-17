@@ -1,0 +1,27 @@
+@if (isEditable()) {
+  <textarea
+    #annotationField
+    [ngModel]="cwLibAnnotation()"
+    (mousedown)="onTextAreaMouseDown($event)">
+  </textarea>
+} @else {
+  <div class="placeholder">
+    {{ cwLibAnnotation() }}
+  </div>
+}
+
+<div class="actions">
+  @if(isEditable()) {
+    <button
+      class="actions__item"
+      (click)="onAcceptClick()">
+      ✓
+    </button>
+  }
+
+  <button
+    class="actions__item"
+    (click)="onClearClick()">
+    ✗
+  </button>
+</div>

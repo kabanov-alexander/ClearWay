@@ -1,0 +1,24 @@
+@let documents = documentsListResource.value();
+
+@if(documentsListResource.hasValue()) {
+  <ng-container *ngTemplateOutlet="documentsListTpl">
+  </ng-container>
+} @else if (documentsListResource.error()) {
+  <p>
+    Could not load documents (Image an error bar or retry button here)
+  </p>
+} @else if (documentsListResource.isLoading()) {
+  <p>
+    Loading documents... (Image a spinner here)
+  </p>
+}
+
+<ng-template #documentsListTpl>
+  <ul>
+    @for (document of documents; track document.id) {
+      <li>
+        <a [routerLink]="[document.id]">{{ document.name }}</a>
+      </li>
+    }
+  </ul>
+</ng-template>
